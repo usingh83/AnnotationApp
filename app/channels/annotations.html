@@ -1,0 +1,26 @@
+
+
+
+<div class="message-wrap" ng-repeat="annotation in annotationsCtrl.annotations">
+  <strong ng-if="annotation.messageId===message.$id && annotationsCtrl.annotations[0]===annotation">{{annotationsCtrl.messageBody}}</strong>
+  <br/>
+  <p ng-if="annotation.messageId===message.$id && annotation.uid===channelsCtrl.profile.$id" class="message-info">
+      <span>{{ message.body.substr(annotation.start,annotation.end-annotation.start+1)}}</span>-->
+    <span class="message">
+      {{ annotation.note }}
+    </span>
+  </p>
+</div>
+
+
+<form class="message-wrap" ng-submit="annotationsCtrl.sendAnnotation()" style=" width:50%;padding-bottom:70px;justify-content: right">
+  <div class="input-group">
+    <input type="text" class="form-control" ng-model="annotationsCtrl.note" placeholder="Type an annotation...">
+    <input type="text" class="form-control" ng-model="annotationsCtrl.start" placeholder="annotation start...">
+    <input type="text" class="form-control" ng-model="annotationsCtrl.end" placeholder="annotation end...">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="submit">Send</button>
+    </span>
+  </div>
+
+</form>
